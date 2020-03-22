@@ -1,7 +1,7 @@
 ansible-sqitch
 =========
 
-Ansible role that installs sqitch.
+Ansible role that installs sqitch on Debian/Ubuntu.
 
 Requirements
 ------------
