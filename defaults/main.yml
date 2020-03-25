@@ -1,3 +1,3 @@
 ---
 # defaults file for ansible-sqitch
-sqitch_database_support: PostgreSQL
+sqitch_database_support:

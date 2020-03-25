@@ -24,18 +24,32 @@ Variables
 ---------
 
 ```yml
-sqitch_database_support: PostgreSQL  # Can be any of [SQLite, MySQL, PostgrSQL]. Install sqitch with support to this database
+sqitch_database_support: 
+ - PostgreSQL  # Can be any of SQLite, MySQL, PostgrSQL. Install sqitch with support to this database. See Example Playbook for usage
 
 ```
 Example Playbook
 ----------------
-
-
-    - hosts: servers
+One database 
+```yml
+- hosts: servers
       roles:
          - role: ansible-sqitch
            vars:
-            sqitch_database_support: PostgreSQL
+            sqitch_database_support: 
+              - PostgreSQL
+```
+Multiple databases
+```yml
+- hosts: servers
+      roles:
+         - role: ansible-sqitch
+           vars:
+            sqitch_database_support: 
+              - PostgreSQL
+              - MySQL
+```
+
 
 Testing
 ------------

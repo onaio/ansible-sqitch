@@ -5,8 +5,7 @@
     state: latest
     update_cache: yes
     cache_valid_time: 600
-  when:
-    sqitch_database_support == 'PostgreSQL'
+  when: '"PostgreSQL" in sqitch_database_support'
 
 - name: Install Sqitch with SQLite support
   apt:
@@ -14,8 +13,7 @@
     state: latest
     update_cache: yes
     cache_valid_time: 600
-  when:
-    sqitch_database_support == 'SQLite'
+  when: '"SQLite" in sqitch_database_support'
 
 - name: Install Sqitch with MySQL support
   apt:
@@ -23,5 +21,4 @@
     state: latest
     update_cache: yes
     cache_valid_time: 600
-  when:
-    sqitch_database_support == 'MySQL'
+  when: '"MySQL" in sqitch_database_support'
