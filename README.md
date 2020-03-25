@@ -1,7 +1,8 @@
 ansible-sqitch
 =========
 
-Ansible role that installs sqitch on Debian/Ubuntu.
+Ansible role that installs Sqitch with PostgreSQL, MySQL or SQLite support on Debian/Ubuntu.
+
 
 Requirements
 ------------
@@ -11,15 +12,30 @@ This role has no pre-requisites.
 Dependencies
 ------------
 
-This role has no dependencies.
+The dependencies depend on the database to install.
 
+PostgreSQL: `libdbd-pg-perl`, `postgresql-client`
+
+MySQL: `libdbd-mysql-perl`, `mysql-client`
+
+SQLite: `libdbd-sqlite3-perl`, `sqlite3`
+
+Variables
+---------
+
+```yml
+sqitch_database_support: PostgreSQL  # Can be any of [SQLite, MySQL, PostgrSQL]. Install sqitch with support to this database
+
+```
 Example Playbook
 ----------------
 
 
     - hosts: servers
       roles:
-         - ansible-sqitch
+         - role: ansible-sqitch
+           vars:
+            sqitch_database_support: PostgreSQL
 
 Testing
 ------------

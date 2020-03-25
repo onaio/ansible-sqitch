@@ -1,7 +1,6 @@
 ---
 # tasks file for ansible-sqitch
 - name: Install Sqitch
-  apt:
-    name: sqitch
-    update_cache: true
-    state: present
+  include_tasks: install.yml
+  tags:
+    - install
