@@ -1,0 +1,24 @@
+---
+- name: Install Sqitch with PostgreSQL support
+  apt:
+    pkg: ['sqitch', 'libdbd-pg-perl', 'postgresql-client']
+    state: latest
+    update_cache: yes
+    cache_valid_time: 600
+  when: '"PostgreSQL" in sqitch_database_support'
+
+- name: Install Sqitch with SQLite support
+  apt:
+    pkg: ['sqitch', 'libdbd-sqlite3-perl', 'sqlite3']
+    state: latest
+    update_cache: yes
+    cache_valid_time: 600
+  when: '"SQLite" in sqitch_database_support'
+
+- name: Install Sqitch with MySQL support
+  apt:
+    pkg: ['sqitch', 'libdbd-mysql-perl', 'mysql-client']
+    state: latest
+    update_cache: yes
+    cache_valid_time: 600
+  when: '"MySQL" in sqitch_database_support'

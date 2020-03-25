@@ -5,3 +5,8 @@
     - name: "Include ansible-sqitch"
       include_role:
         name: "ansible-sqitch"
+      vars:
+        sqitch_database_support:
+          - PostgreSQL
+          - MySQL
+          - SQLite
